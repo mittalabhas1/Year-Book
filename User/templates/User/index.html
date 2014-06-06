@@ -1,0 +1,13 @@
+<h1>Yearbook</h1>
+
+<form action="{% url 'user:login' %}" enctype="multipart/form-data" method="POST">
+	<fieldset>
+		{% csrf_token %}
+		<input type="text" name="username" class="inputFields">
+		<input type="password" name="password" class="inputFields">
+		<input type="submit" name="submit" value="Login">
+	</fieldset>
+	{% if error_message %}
+		<p><strong>{{ error_message }}</strong></p>
+	{% endif %}
+</form>
