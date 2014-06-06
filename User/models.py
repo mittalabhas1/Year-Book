@@ -13,7 +13,7 @@ class UserDetails(models.Model):
 	"""
 	uid = models.ForeignKey(User)
 	name = models.CharField(max_length=50)
-	dob = models.DateField([auto_now=False, auto_add_now=False])
+	dob = models.DateField(auto_now=False, auto_now_add=False)
 	email = models.EmailField(max_length=254)
 	hometown = models.CharField(max_length=50)
-	course = models.CharField(max_field=100)
+	course = models.CharField(max_length=100)
