@@ -19,7 +19,7 @@ class HomeView(generic.DetailView):
 def login(request):
 	"""
 	Controls the login mechanism.
-	Redirects to home page for successs, otherwise shows the login form again with an error message.
+	Redirects to home page for successs, otherwise renders the login form again with an error message.
 	"""
 	try:
 		user = User.objects.get(username=request.POST['username'], password=request.POST['password'])
