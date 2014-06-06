@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic.base import TemplateView
+from django.views.generic import DetailView
 
 from User.models import User, UserDetails
 
@@ -13,8 +14,16 @@ class IndexView(TemplateView):
 	template_name = "User/index.html"
 
 class HomeView(generic.DetailView):
+	"""
+	Renders the home page after logging in
+	"""
 	model = UserDetails
 	template_name = "User/home.html"
+	context_object_name = 'user'
+	
+	def get_context_data(self, **kwargs):
+		context = super(HomeView, self).get_context_data(**kwargs)
+		return context
 
 def login(request):
 	"""
