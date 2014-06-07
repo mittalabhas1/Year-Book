@@ -1,3 +1,4 @@
 *.pyc
 YearBook/*.pyc
 User/*.pyc
+Questions/*.pyc
