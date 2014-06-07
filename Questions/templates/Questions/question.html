@@ -1,0 +1,10 @@
+<form action="{% url 'ques:saveAnswer' ques.id %}" enctype="multipart/form-data" method="POST">
+	{% csrf_token %}
+	{{ ques.question }}
+	<input type="hidden" name="qid" value="ques.id">
+	<textarea name="answer"></textarea>
+	<input type="submit" name="submit" value="Answer">
+	{% if error_message %}
+		<p><strong>{{ error_message }}</strong></p>
+	{% endif %}
+</form>

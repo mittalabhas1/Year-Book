@@ -1,0 +1,9 @@
+{% if list_of_questions %}
+	<ul>
+		{% for ques in list_of_questions %}
+		<li><a href="{% url 'ques:question' ques.id %}">{{ ques.question }}</a></li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<h3>No questions are left to answer.</h3>
+{% endif %}

@@ -7,7 +7,7 @@ class Questions(models.Model):
 	"""
 	question = models.CharField(max_length=100)
 
-	def __unicode__():
+	def __unicode__(self):
 		return self.question
 
 class Answers(models.Model):
@@ -17,3 +17,6 @@ class Answers(models.Model):
 	uid = models.ForeignKey(User)
 	qid = models.ForeignKey(Questions)
 	answer = models.TextField()
+
+	def __unicode__(self):
+		return self.uid.username + " (" + self.qid.question + ")"
