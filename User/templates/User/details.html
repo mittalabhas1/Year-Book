@@ -1,0 +1,22 @@
+<h1>Yearbook</h1>
+<h3>Fill your basic details here</h3>
+
+<form action="{% url 'user:saveDetails' %}" enctype="multipart/form-data" method="POST">
+	<fieldset>
+		{% csrf_token %}
+		<input type="hidden" name="uid" value="{{ uid }}" class="inputFields">
+		<input type="text" name="name" class="inputFields">
+		<input type="date" name="dob" class="inputFields">
+		<input type="email" name="email" class="inputFields">
+		<input type="text" name="hometown" class="inputFields">
+		<select name="course">
+			<option value="B.Tech. Pulp and Paper Engineering">B.Tech Pulp and Paper Engineering</option>
+			<option value="IDD Process Engineering with MBA">IDD Process Engineering with MBA</option>
+			<option value="IMT Polymer Science and Technology">IMT Polymer Science and Technology</option>
+		</select>
+		<input type="submit" name="submit" value="Login">
+	</fieldset>
+	{% if error_message %}
+		<p><strong>{{ error_message }}</strong></p>
+	{% endif %}
+</form>

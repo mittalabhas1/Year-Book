@@ -7,6 +7,9 @@ class User(models.Model):
 	username = models.CharField(max_length=20)
 	password = models.CharField(max_length=20)
 
+	def __unicode__(self):
+		return self.username
+
 class UserDetails(models.Model):
 	"""
 	This class contains all the personal and public information of the user ie name, email address, phone no, dob, hometown, etc
@@ -17,3 +20,6 @@ class UserDetails(models.Model):
 	email = models.EmailField(max_length=254)
 	hometown = models.CharField(max_length=50)
 	course = models.CharField(max_length=100)
+
+	def __unicode__(self):
+		return self.name
